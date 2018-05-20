@@ -18,7 +18,7 @@ body {
   line-height: 1.1;
   position: relative;
   margin: 0;
-  } 
+  }
 .quote:before, .quote:after {
   font-size: 6rem;
   line-height: 2.5rem;
@@ -55,6 +55,16 @@ body {
 .year:before {
   content: ", ";
   font-style: normal;
+}
+.type {
+  font-size: 1.25rem;;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  text-align: right;
+  margin-right: 4em;
+}
+.type:before {
+  content: "—";
 }
 
 #loadQuote {
