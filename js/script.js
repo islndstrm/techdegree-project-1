@@ -1,9 +1,11 @@
+// This program displays a new quote every time the button is clicked or every 15 seconds
+
 // sets up the array that holds the quotes
 const quotes = [
   {
     quote: "The secret to happiness is freedom. The secret to freedom is courage.",
     source: "Thurcydides",
-    type: "Inspirational quote."
+    type: "Motivational quote."
   },
   {
     quote: "A day without sunshine is like, you know, night.",
@@ -39,26 +41,45 @@ const quotes = [
     type: "Inspirational quote."
   },
   {
+    quote: "The person, be it gentleman or lady, who has not pleasure in a good novel must be intolerably stupid.",
+    source: "Jane Austen",
+    citation: "Northanger Abbey",
+    year: 1817,
+    type: "Book quote."
+  },
+  {
     quote: "If you want your children to listen, try talking softly - to someone else.",
     source: "Ann Landers",
     type: "Humorous quote."
   },
   {
-    quote: "The person, be it gentleman or lady, who has not pleasure in a good novel must be intolerably stupid.",
-    source: "Jane Austen",
-    citaton: "Northanger Abbey",
-    year: 1817,
-    type: "Humorous quote."
+    quote: "The future belongs to those who believe in the beauty of their dreams.",
+    source: "Eleanor Roosevelt",
+    type: "Inspirational quote."
   }
 ];
 
-// generates a new quote every 60 seconds
-const intervalID = window.setInterval(printQuote, 6000);
+// generates a new quote every 15 seconds
+const intervalID = window.setInterval(printQuote, 15000);
 
-// generates a random number and uses it to pick a random quote from the quotes array
+// generates a random number and uses it to return a random quote from the quotes array
 function getRandomQuote() {
   let randomNum = Math.floor(Math.random() * quotes.length);
   return quotes[randomNum];
+}
+
+// generates a random color hex value
+function getRandomColor () {
+  return Math.floor(Math.random() * 256 );
+}
+
+// generates and returns a random RGB color
+function randomColor() {
+  let red = getRandomColor();
+  let green = getRandomColor();
+  let blue = getRandomColor();
+  return `rgb(${red}, ${green}, ${blue})`;
+  // html += '<div style="background-color:' + rgbColor + '"></div>';
 }
 
 // constructs the HTML and text to display for each new quote and prints it to the page
@@ -77,15 +98,6 @@ function printQuote() {
   text += "</p>"
   document.getElementById('quote-box').innerHTML = text;
   document.body.style.backgroundColor = randomColor();
-}
-
-// generates a random color - copied and modified from JavoScripts Loops, Arrays, and Objects class
-function randomColor() {
-  let red = Math.floor(Math.random() * 256 );
-  let green = Math.floor(Math.random() * 256 );
-  let blue = Math.floor(Math.random() * 256 );
-  return `rgb(${red}, ${green}, ${blue})`;
-  // html += '<div style="background-color:' + rgbColor + '"></div>';
 }
 
 // event listener to respond to "Show another quote" button clicks
